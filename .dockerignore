@@ -1,0 +1,10 @@
+# Ignore Python source files
+*.pyc
+__pycache__
+
+# Ignore temporary files
+.git
+.vscode
+
+# Exclude specific directories
+venv/

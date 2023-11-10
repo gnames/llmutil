@@ -32,3 +32,12 @@ Takes POST with
 ```
 
 Response contains an array of embeddings with 384-dimentional vectors.
+
+## Testing
+
+Tests are located in `tests` directory.
+Install `pytest` and run:
+
+```bash
+pytest
+```

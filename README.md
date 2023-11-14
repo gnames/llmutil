@@ -11,8 +11,16 @@ docker build -t gnames/llmutil:latest .
 ```
 ## Usage
 
+In case if there is an Nvidia GPU, you need Nvidia's docker toolkit
+
 ```bash
-docker run -d -p 8000:8000 gnames/llmutil:latest
+# on Arch
+yay -S nvidia-container-toolkit
+sudo systemctl restart docker
+```
+
+```bash
+docker run -d --gpus all -p 8000:8000 gnames/llmutil:latest
 ```
 
 ## API endpoints
@@ -44,7 +52,7 @@ pip install -r requirements.txt
 python main.py
 
 # for production
-gunicorn --workers 3 --bind 0.0.0.0:8000 main:app
+gunicorn --workers 1 --timeout 300 --bind 0.0.0.0:8000 main:app
 ```
 
 ## Testing

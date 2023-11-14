@@ -12,5 +12,5 @@ ENV FLASK_ENV=production
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--workers", "3", "--bind", "0.0.0.0:8000", "main:app"]
+CMD ["gunicorn", "--workers", "1", "--timeout", "600", "--bind", "0.0.0.0:8000", "main:app"]
 

@@ -22,8 +22,8 @@ python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-# for tests
-python main.py
+# to run tests
+pytest
 
 # for production
 gunicorn --workers 1 --timeout 300 --bind 0.0.0.0:8000 main:app

@@ -17,16 +17,23 @@ sudo systemctl restart docker
 
 ### Usage from Command Line 
 
+Go to the root of the project.
+
 ```bash
+# or do it manually
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt 
 
 # to run tests
 pytest
 
 # for production
 gunicorn --workers 1 --timeout 300 --bind 0.0.0.0:8000 main:app
+
+# when all is instlled, you can use a script
+# to start the server.
+./run
 ```
 
 ### API endpoints

@@ -34,4 +34,17 @@ def test_api_embed():
     assert resp.status_code == 200
     res = json.loads(resp.data.decode('utf-8'))
     assert len(res) == 3
-    assert len(res[0]) == 384
+    assert len(res[0]) == 768
+
+
+def test_api_cross_embed():
+    payload = {'texts': [
+        ['Dogs are cool.', 'Dogs are beautiful.'],
+        ['A dog is playing in the field.', 'Cats are lazy.'],
+    ]}
+    resp = client.post('/api/v1/cross_embed', json=payload)
+    assert resp.status_code == 200
+    res = json.loads(resp.data.decode('utf-8'))
+    assert len(res) == 2
+    assert res[0] > 0.7
+    assert res[1] < 0.1

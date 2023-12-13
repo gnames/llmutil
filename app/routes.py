@@ -3,7 +3,7 @@ from llm import embed
 from app import app
 
 path = '/api/v1/'
-ep_ary = ["ping", "version", "embed", "cross"]
+ep_ary = ["ping", "version", "embed", "cross_embed"]
 
 ep = {}
 for v in ep_ary:
@@ -39,4 +39,11 @@ def version():
 def embedTexts():
     payload = request.json
     res = embed.embed(payload['texts'])
+    return jsonify(res.tolist())
+
+
+@app.route(path + ep['cross_embed'], methods=['POST'])
+def crossTexts():
+    payload = request.json
+    res = embed.cross_embed(payload['texts'])
     return jsonify(res.tolist())

@@ -15,7 +15,7 @@ yay -S nvidia-container-toolkit
 sudo systemctl restart docker
 ```
 
-### Usage from Command Line 
+### Usage from Command Line
 
 Go to the root of the project.
 
@@ -23,7 +23,7 @@ Go to the root of the project.
 # or do it manually
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt 
+pip install -r requirements.txt
 
 # to run tests
 pytest
@@ -34,6 +34,12 @@ gunicorn --workers 1 --timeout 300 --bind 0.0.0.0:8000 main:app
 # when all is instlled, you can use a script
 # to start the server.
 ./run
+```
+
+If new libraries are added, run
+
+```bash
+pip freeze > requirements.txt
 ```
 
 ### API endpoints

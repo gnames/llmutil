@@ -4,9 +4,10 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN pip install -U pip
-RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY . .
+
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 ENV FLASK_ENV=production
 

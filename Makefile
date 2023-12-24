@@ -1,5 +1,5 @@
 PROJ_NAME = llmutil
-VERSION = v0.0.2
+VERSION = v0.0.3
 
 docker: 
 	docker buildx build -t gnames/$(PROJ_NAME):latest -t gnames/$(PROJ_NAME):$(VERSION) .;
